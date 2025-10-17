@@ -1,0 +1,4 @@
+document:500
+relations:1
+relation,count,max evidence count
+P3374,1012,0

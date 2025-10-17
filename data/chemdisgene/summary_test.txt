@@ -1,0 +1,21 @@
+document:523
+relations:18
+relation,count,max evidence count
+chem_gene:affects^expression,82,0
+chem_disease:therapeutic,427,0
+chem_disease:marker/mechanism,648,0
+chem_gene:affects^binding,199,0
+chem_gene:increases^activity,329,0
+gene_disease:marker/mechanism,490,0
+chem_gene:decreases^activity,312,0
+chem_gene:increases^metabolic_processing,131,0
+chem_gene:decreases^expression,441,0
+chem_gene:increases^expression,546,0
+chem_gene:decreases^transport,17,0
+chem_gene:affects^activity,32,0
+chem_gene:decreases^metabolic_processing,64,0
+gene_disease:therapeutic,82,0
+chem_gene:affects^metabolic_processing,20,0
+chem_gene:affects^localization,41,0
+chem_gene:increases^transport,41,0
+chem_gene:affects^transport,9,0

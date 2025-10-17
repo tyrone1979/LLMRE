@@ -1,0 +1,13 @@
+Type B hepatitis|Disease|0|[0, 3]|0|_|_|_|_|_|_|_|_|343678
+hepatitis B|Disease|0|[11, 13]|0|_|_|_|_|_|_|_|_|343678
+Hepatitis B|Disease|1|[0, 2]|0|_|_|_|_|_|_|_|_|343678
+type B hepatitis|Disease|1|[31, 34]|0|_|_|_|_|_|_|_|_|343678
+Hepatitis B|Disease|6|[0, 2]|0|_|_|_|_|_|_|_|_|343678
+type B hepatitis|Disease|6|[11, 14]|0|_|_|_|_|_|_|_|_|343678
+type B hepatitis|Disease|7|[6, 9]|0|_|_|_|_|_|_|_|_|343678
+hepatitis B surface antigen|Chemical|1|[40, 44]|4|_|_|_|_|_|_|_|_|343678
+HBsAG|Chemical|1|[45, 46]|4|_|_|_|_|_|_|_|_|343678
+HBsAg|Chemical|5|[14, 15]|4|_|_|_|_|_|_|_|_|343678
+hepatitis|Disease|2|[1, 2]|6|_|_|_|_|_|_|_|_|343678
+HBeAg|Chemical|4|[17, 18]|7|_|_|_|_|_|_|_|_|343678
+HBeAg|Chemical|5|[3, 4]|7|_|_|_|_|_|_|_|_|343678
