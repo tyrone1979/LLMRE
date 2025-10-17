@@ -1,0 +1,273 @@
+country,PLACE,CTRY
+country,ORG,CTRY
+country,MISC,CTRY
+synonym,CTRY,CTRY
+synonym,PLACE,PLACE
+synonym,ORG,ORG
+synonym,MISC,MISC
+synonym,PER,PER
+synonym,Chemical,Chemical
+synonym,Disease,Disease
+hypernyms,Disease,Disease
+hypernyms,Chemical,Chemical
+induce,Chemical,Disease
+correlate,Chemical,Disease
+chem_disease:affects,Chemical,Disease
+gene_disease:marker/mechanism,Gene,Disease
+gene_disease:therapeutic,Gene,Disease
+chem_gene:activity,Chemical,Gene
+chem_gene:affects^expression,Chemical,Gene
+chem_gene:increases^activity,Chemical,Gene
+chem_gene:expression,Chemical,Gene
+chem_gene:transport,Chemical,Gene
+chem_gene:affects^localization,Chemical,Gene
+chem_gene:increases^metabolic_processing,Chemical,Gene
+chem_gene:decreases^metabolic_processing,Chemical,Gene
+chem_gene:affects^binding,Chemical,Gene
+located in the administrative territorial entity,PLACE,PLACE
+located in the administrative territorial entity,PLACE,CTRY
+headquarters location,ORG,LOC
+country of citizenship,PER,CTRY
+date of birth,PER,TIME
+date of death,PER,TIME
+place of birth,PER,LOC
+place of death,PER,LOC
+subsidiary,ORG,ORG
+location,ORG,LOC
+contains administrative territorial entity,CTRY,LOC
+contains administrative territorial entity,LOC,LOC
+part of,ORG,ORG
+has part,CONT,CTRY
+series,PROD,PROD
+series,MISC,MISC
+applies to jurisdiction,ORG,LOC
+employer,PER,ORG
+educated at,PER,ORG
+participant in,ORG,EVENT
+author,MISC,PER
+author,NUM,PER
+author,ORG,PER
+author,PER,PER
+award received,PER,MISC
+award received,PER,EVENT
+basin country,LOC,LOC
+capital of,LOC,LOC
+capital of,LOC,CTRY
+capital,LOC,LOC
+capital,CTRY,LOC
+cast member,MISC,PER
+cast member,PER,PER
+chairperson,ORG,PER
+characters,MISC,MISC
+characters,MISC,PER
+characters,ORG,PER
+characters,PER,MISC
+characters,PER,PER
+child,LOC,PER
+child,PER,PER
+composer,MISC,PER
+composer,TIME,PER
+conflict,LOC,EVENT
+conflict,PER,EVENT
+conflict,ORG,EVENT
+continent,CTRY,CONT
+continent,LOC,CONT
+country of origin,PER,CTRY
+country of origin,ORG,CTRY
+creator,LOC,PER
+creator,MISC,ORG
+creator,MISC,PER
+creator,ORG,PER
+creator,PER,ORG
+creator,PER,PER
+developer,MISC,MISC
+developer,MISC,ORG
+developer,ORG,ORG
+developer,PER,ORG
+director,MISC,PER
+director,PER,PER
+end time,EVENT,TIME
+ethnic group,CTRY,CTRY
+father,PER,LOC
+father,PER,PER
+followed by,LOC,LOC
+followed by,MISC,MISC
+followed by,MISC,ORG
+followed by,ORG,MISC
+followed by,ORG,ORG
+followed by,PER,MISC
+followed by,TIME,TIME
+follows,LOC,LOC
+follows,LOC,PER
+follows,MISC,MISC
+follows,MISC,ORG
+follows,MISC,PER
+follows,ORG,MISC
+follows,ORG,ORG
+follows,TIME,TIME
+founded by,ORG,ORG
+founded by,ORG,PER
+founded by,PER,PER
+genre,MISC,MISC
+genre,MISC,ORG
+genre,ORG,MISC
+genre,ORG,ORG
+genre,PER,MISC
+genre,PER,ORG
+head of government,LOC,PER
+head of state,LOC,PER
+head of state,ORG,PER
+inception,LOC,TIME
+inception,MISC,TIME
+inception,CTRY,TIME
+inception,PROD,TIME
+inception,ORG,TIME
+influenced by,PER,MISC
+influenced by,PER,PER
+instance of,LOC,LOC
+instance of,LOC,MISC
+instance of,LOC,ORG
+instance of,MISC,LOC
+instance of,MISC,MISC
+instance of,MISC,ORG
+instance of,MISC,PER
+instance of,ORG,ORG
+instance of,PER,PER
+"languages spoken, written or signed",LOC,CTRY
+"languages spoken, written or signed",PER,CTRY
+league,LOC,ORG
+league,ORG,MISC
+league,ORG,ORG
+league,PER,MISC
+league,PER,ORG
+legislative body,LOC,ORG
+legislative body,ORG,ORG
+legislative body,CTRY,ORG
+"dissolved, abolished or demolished",ORG,TIME
+"dissolved, abolished or demolished",CTRY,TIME
+"dissolved, abolished or demolished",LOC,TIME
+located in or next to body of water,LOC,OCEAN
+located in or next to body of water,CTRY,OCEAN
+located on terrain feature,LOC,LOC
+located on terrain feature,ORG,LOC
+location of formation,MISC,LOC
+location of formation,ORG,LOC
+location of formation,PER,LOC
+location,LOC,LOC
+location,MISC,LOC
+location,MISC,ORG
+location,ORG,ORG
+lyrics by,MISC,PER
+manufacturer,MISC,ORG
+manufacturer,PROD,ORG
+member of political party,ORG,ORG
+member of political party,PER,ORG
+member of sports team,PER,LOC
+member of sports team,PER,MISC
+member of sports team,PER,ORG
+member of,PER,ORG
+military branch,ORG,ORG
+military branch,PER,ORG
+mother,PER,PER
+mouth of the watercourse,LOC,LOC
+narrative location,MISC,LOC
+narrative location,PER,LOC
+notable work,ORG,MISC
+notable work,PER,MISC
+notable work,PER,ORG
+notable work,PER,PER
+official language,CTRY,CTRY
+operator,MISC,ORG
+operator,PROD,ORG
+original language of work,LOC,CTRY
+original network,MISC,MISC
+original network,MISC,ORG
+original network,MISC,TIME
+original network,ORG,ORG
+original network,PER,ORG
+owned by,PROD,ORG
+owned by,ORG,ORG
+parent organization,ORG,ORG
+parent taxon,MISC,MISC
+participant of,LOC,MISC
+participant of,MISC,MISC
+participant of,ORG,MISC
+participant of,PER,LOC
+participant of,PER,MISC
+participant,MISC,LOC
+participant,MISC,MISC
+participant,MISC,ORG
+participant,MISC,PER
+participant,PER,ORG
+performer,MISC,ORG
+performer,PROD,ORG
+performer,MISC,PER
+performer,PROD,PER
+platform,MISC,MISC
+platform,ORG,MISC
+point in time,EVENT,TIME
+position held,PER,MISC
+position held,PER,ORG
+position held,PER,PER
+present in work,LOC,MISC
+present in work,MISC,MISC
+present in work,MISC,PER
+present in work,PER,MISC
+present in work,PER,ORG
+present in work,PER,PER
+producer,MISC,ORG
+producer,MISC,PER
+producer,PROD,PER
+product or material produced,MISC,MISC
+product or material produced,ORG,MISC
+production company,MISC,MISC
+production company,MISC,ORG
+production company,PER,ORG
+publication date,MISC,TIME
+publication date,PROD,TIME
+publisher,MISC,MISC
+publisher,MISC,ORG
+publisher,MISC,PER
+publisher,ORG,ORG
+publisher,PER,ORG
+publisher,PER,PER
+record label,MISC,ORG
+record label,PROD,ORG
+religion,LOC,ORG
+religion,MISC,ORG
+religion,ORG,ORG
+religion,PER,LOC
+religion,PER,ORG
+replaced by,LOC,LOC
+replaced by,LOC,ORG
+replaced by,ORG,LOC
+replaced by,ORG,ORG
+replaces,LOC,LOC
+replaces,LOC,ORG
+replaces,ORG,ORG
+residence,LOC,LOC
+residence,PER,LOC
+screenwriter,MISC,PER
+screenwriter,PER,PER
+separated from,LOC,LOC
+child,PER,PER
+sibling,PER,PER
+sister city,LOC,LOC
+spouse,LOC,PER
+spouse,PER,LOC
+spouse,PER,PER
+start time,EVENT,TIME
+subclass of,MISC,MISC
+subclass of,MISC,ORG
+subclass of,ORG,MISC
+subclass of,ORG,ORG
+territory claimed by,LOC,CTRY
+unemployment rate,LOC,NUM
+work location,PER,LOC
+twinned administrative body,LOC,CTRY
+twinned administrative body,LOC,LOC
+twinned administrative body,CTRY,LOC
+original language of film or TV show,PROD,CTRY
+located in/on physical feature,LOC,LOC
+original broadcaster,PROD,ORG
+part of the series,PROD,PROD

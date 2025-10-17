@@ -1,0 +1,3 @@
+chem_gene:affects^binding,Chemical,Gene
+chem_gene:decreases^activity,Chemical,Gene
+chem_gene:increases^transport,Chemical,Gene
