@@ -1,0 +1,241 @@
+{
+  "redocred": {
+    "NER": {
+      "template": "please extract entity appeared in the text:'{input}' by below types:\n{type}\noutput: type|entity name or 'NONE' for none.\nAttention: the terms must be appeared in the text.\none term one line,no other message",
+      "type":
+        [
+          {
+            "CTRY": "name represents a country name such as United States,Mexico,Argentine, a country abbreviation  such as USA,U.S., a country adjective such as American, Japanese, Australian. ‘Alaska’ not a CTRY",
+            "PLACE": "name represents a certain place name with capitalized words, such as theaters, mountain names, water names, cities, states, Monument, excluding country names. If you labeled a country name/abbreviation/adjective by PLACE, please revise it to CTRY",
+            "ORG": "name represents an organization,Companies, universities, institutions, Army, Party, Congress, Senate, political or religious groups, etc.",
+            "PER": "name represents a person name,including fictional, not a role name such as President",
+            "MISC": "name represents 1. Products, including vehicles, weapons, etc.  2. Events, including elections, battles, wars, sporting events, etc.3. Laws, cases, languages, etc. 4. Medias, including channels, albums,films, song names,etc. 5. Awards, honorary,etc. 6. Plant names. 7. Language",
+            "TIME": "term represents absolute or relative dates or periods.",
+            "NUM": "term represents a specific percents, money, quantities"
+          }
+        ]
+    },
+    "RE": {
+      "template": {
+        "located in the administrative territorial entity": ["You are an ai assistant for relation extract.\n{input}\nRefer to above context,Is {tail} an administrative territorial entity/nationality?\nIs {head} located within the administrative territorial entity/belong to the nationality of {tail}? \nplease answer each question by 'YES' or 'NO'.\nDO NOT output any other message.","AND"],
+        "synonym": ["{input}\nAre {head} and {tail} the same {type} entity in the above context?\nplease answer 'YES' or 'NO' ONLY.\nDO NOT output any other message.","AND"]
+
+      },
+      "backup":{
+          "country": ["You are an ai assistant for relation extract.\n{input}\nRefer to above context,\nIs {tail} a country name and {head} belong to the country of {tail}, currently?\nIs {tail} a country name and {head} located in the country of {tail}, currently?\nIs {tail} a country name and {head} controlled by the country of {tail}, currently?\nplease give each answer 'YES' or 'NO'\nDO NOT output any other message.","OR"],
+          "country of citizenship": "You are an ai assistant for relation extract.\n{input}\nRefer to above text, is {head} a person?\nIs {head} a citizen by {tail}?\ngive each answer by 'YES' or 'NO'.\nDO NOT output any other message.",
+          "headquarters location": "You are an ai assistant for relation extract.\n{input}\n1.Does above article mention a 'headquarter' or 'base'?2.Does {head} have a headquarter?3. Is {tail} a specific location name? 4.Is {head}'s headquarter located at {tail}?\ngive each answer by 'YES' or 'NO'.\nDO NOT output any other message.",
+          "subsidiary": "You are an ai assistant for relation extract.\n{input}\nRefer to above text, Is {tail} a subsidiary of {head}?\ngive each answer by 'YES' or 'NO'.\nDO NOT output any other message.",
+          "date of birth": "You are an ai assistant for relation extract.\n{input}\nRefer to above text, was  {head} birth on {tail}? \ngive each answer by 'YES' or 'NO'.\nDO NOT output any other message.",
+          "date of death": "You are an ai assistant for relation extract.\n{input}\nRefer to above text, was  {head} death on {tail}? \ngive each answer by 'YES' or 'NO'.\nDO NOT output any other message.",
+          "place of birth": "You are an ai assistant for relation extract.\n{input}\nRefer to above text, was  {head} birth at {tail}? \ngive each answer by 'YES' or 'NO'.\nDO NOT output any other message.",
+          "place of death": "You are an ai assistant for relation extract.\n{input}\nRefer to above text, was  {head} death at {tail}? \ngive each answer by 'YES' or 'NO'.\nDO NOT output any other message.",
+          "location": "You are an ai assistant for relation extract.\n{input}\nRefer to above text, is {head} location at {tail}?\ngive answer by 'YES' or 'NO'.\nDO NOT output any other message.",
+          "manufacturer": "You are an ai assistant for relation extract.\n{input}\nRefer to above text, is {tail} the  maker or producer of {head}. Example: (iPhone, manufacturer, Apple Inc.).\ngive each answer by 'YES' or 'NO'.\nDO NOT output any other message.",
+          "contains administrative territorial entity": "You are an ai assistant for relation extract.\n{input}\nRefer to above content, does {head} contain administrative territorial entity of {tail}? \nplease answer each question by 'YES' or 'NO'.\nDO NOT output any other message."
+          }
+    }
+  },
+
+  "cdr": {
+    "NER": {
+      "template": "{input}\nplease extract entities from above context by below types:\n{type}\nOutput format: type|entity name or 'NONE' for none.\nAttention: the terms must be appeared in the text.\none term one line,no other message",
+      "type":
+        [{
+          "Disease" : "Disease/Abnormal names such as [cardiac hypertrophy,hyperplasia,sagittal and left transverse sinus thrombosis,neutropenia,gastrointestinal haemorrhage]. Symptom names such as [catalepsy,cough,abdominal pain,weight loss,fever]. Adjectives for diseases such as [hypoxic,nephrotic,hepatotoxic]. Disease abbreviations such as [AIDS,MI,NS,AZT,ARF,DM,KA].\nWhen an organ name ahead of disease name, please include the organ, such as [forestomach carcinogenesis, epithelial hyperplasi, arterial occlusion, brain damage, Renal function significantly deteriorated]. Exclude ['ECG','EEG', 'AAS', 'perfusion defect(s)','death(s)','deaths from XXX','A','disease','deficit(s)','inability','adverse events','confused','syndrome','memory','cold'], and exclude only organ name without disease name such as ['kidney'] ",
+          "Chemical" : 	"Chemicals/Drugs/antigen names, such as [superoxide,calcium, citrate, alcohol, oxygen, serotonin, creatinine, 5-HT, anthracycline, benzodiazepines, norepinephrine], Chemical abbreviations such as [NO,ISO,BHA,MC], excluding DNA, RNA, GAD, SNPs, GENE names, excluding all [antagonist,receptor,blocker, ligand]",
+          "Treat":  "Treatment name such as 'bone marrow transplantation'",
+          "Physiology": "Physiology such as blood pressure",
+          "Immune": "immune status such as Rubella nonimmunity",
+          "Gene": "GENE name"
+        }]
+    },
+    "RE": {
+      "template": {
+        "induce":{
+          "question": "{input}\nYou are biomedical expert, refer to above biomedical article, please give answer '$' or '~' only\nbased on below conditions:\nAssumptions:\n1.1 if 'patient had/exhibited {tail} on the Xth day of {head} treatment', please do not use it and find other reason.\n1.2 if 'difference did not reach statistical significance compared to groups' appeared, please do not use it and find other reason.\nConditions:\n1. if the article gave the conclusion that the interaction between {head} and another chemical induce {tail}, or {head} induce {tail}, answer '$'\n2. else if the article mentioned {tail} was reported in the percentage of patients because of {head}, answer '$'\n3. else the article mentioned '{head} is  mediating/attenuating {tail}, answer '~'\n4. else if {head} and {tail} have no relationship, answer '~'.\nDO NOT output any other message.",
+          "answers": {
+            "$": [
+              "induce"
+            ]
+          }
+        },
+        "synonym": {
+          "question": "{input}\nrefer to above context,  \nIf {head} is plural form of {tail} , answer '$' \nelse if {tail} is plural form of {head}, answer '$'\nelse if  {head} is the alias {type} name of {tail} and {tail} is the alias {type} name of {head} , answer '$'\nelse if {head} is a abbreviations of {tail}, please answer '$'\nelse if {tail} is a abbreviations of {head}, please answer '$'\nelse if {head} is a short name of {tail} answer '$'.\nelse if {tail} is a short name of {tail} answer '$'.\nelse answer '~'\nDO NOT output any other message.",
+          "answers": {
+            "$": [
+              "synonym"
+            ]
+          }
+        },
+        "hypernyms": {
+          "question": "{input}\nYou are an expert of biomedical domain, above article is a biomedical paper.\nRefer to above biomedical article, you need review the entire article to judge:\n1. {head} and {tail} are different {type}, answer '~'\n2. {head} and {tail} are same {type}, {head} is a narrower concept than {tail}, answer '~'\n3. {head} and {tail} are same {type},{head} is a broader concept than {tail}, answer '$'\nDo not output any other message",
+          "answers": {
+            "$": [
+              "hypernyms"
+            ]
+          }
+        }
+      }
+    },
+    "BK": {
+        "induce":[ "{input}\nRefer to the context\nDoes {head} increase the risk of {tail}?\nrefer to below condition: if {head} is mediating/attenuating {tail}, the answer is '~'.\nelse if {head} induce {tail}, the answer is '$'.\nplease answer each question by '~' or '$'.\nDO NOT output any other message","AND"]
+        },
+    "ONE": {
+      "template": {
+        "induce": ["{input}\nYou are biomedical expert, refer to above biomedical article, please follow below step to give the final output.\ndefine entity as object with name, type ='Disease' or 'Chemical', index default =0, flag default ='-'\nSTEP 1. Extract Entity: extract all entities from above context by below types: Disease: Disease/Abnormal/Symptom/Adjectives/abbreviations for diseases such as {Disease_include}.When an organ name ahead of disease name, please include the organ. Exclude {Disease_skip},Chemical:Chemicals/Drugs/antigen/abbreviations names, such as {Chemical_include}, exclude all [antagonist,receptor,blocker, ligand], and exclude {Chemical_skip}.Attention: the entity must be appeared in the text. please do not output.\nSTEP 2. Synonym Recognition: Review all entities, If one entity is plural form of another, else if one entity is the alias name of another, else if one entity is a abbreviations of another, please give same index to both entities, otherwise please give different index to the entity.please do not output.\nSTEP 3. Hypernym Recognition: 3.1 if one disease entity is a symptom of another disease entity, 3.2. else if one disease is a hypernym of another disease in term of MeSH, assign the entity flag='H' If one chemical entity is one of a agonist/a receptor/a drug/a derivative of another chemical entity,please assign the entity flag='H' .please do not output.\nSTEP 4. Relationship Extract based on below conditions:Assumptions:4.1 if 'patient had/exhibited disease on the Xth day of chemical treatment', please do not use it and find other reason.4.2 if 'difference did not reach statistical significance compared to groups' appeared, please do not use it and find other reason.Conditions:1. if the article gave the conclusion that the interaction between one chemical entity and another chemical induce one disease entity, or chemical entity induce one disease entity, 2. else if the article mentioned one disease entity was reported in the percentage of patients because of one chemical entity , please output | chemical entity name | chemical entity index | chemical entity flag | 'induce' | disease entity name | disease entity index | disease entity flag | 3. else the article mentioned 'one chemical entity is  mediating/attenuating one disease entity or no relationship, please ignore it. \nplease only output STEP4 result."]
+      }
+    }
+  },
+  "chemdisgene": {
+    "NER": {
+      "template": "{input}\nplease extract entities from above context by below types:\n{type}\nOutput format: type|entity name or 'NONE' for none.\nAttention: the terms must be appeared in the text.\none term one line,no other message",
+      "type":
+        [{
+          "Disease" : "Disease/Abnormal names such as [toxicity,tremor,cancer,cardiac hypertrophy,hyperplasia,sagittal and left transverse sinus thrombosis,neutropenia,gastrointestinal haemorrhage]. Symptom names such as [death,catalepsy,cough,abdominal pain,weight loss,fever]. Adjectives for diseases such as [hypoxic,nephrotic,hepatotoxic]. Disease abbreviations such as [AIDS,MI,NS,AZT,ARF,DM,KA].\nWhen an organ name ahead of disease name, please include the organ, such as [forestomach carcinogenesis, epithelial hyperplasi, arterial occlusion, brain damage, Renal function significantly deteriorated]. Exclude ['ECG','EEG', 'AAS', 'perfusion defect(s)','A','disease','deficit(s)','inability','adverse events','confused','syndrome','memory','cold'], and exclude only organ name without disease name such as ['kidney'] ",
+          "Gene": "GENE name, include full name such as [beta 2-adrenoceptor,insulin], abbreviations name,such as [PDE10A]",
+          "Chemical" : 	"Chemicals/Drugs/antigen names, such as [superoxide,citrate, alcohol, oxygen, serotonin, creatinine, 5-HT, anthracycline, benzodiazepines, norepinephrine], Chemical abbreviations such as [NO,ISO,BHA,MC],excluding Gene, excluding [DNA, RNA, GAD, SNPs], excluding all [antagonist,receptor,blocker, ligand]",
+          "Treat":  "Treatment name such as 'bone marrow transplantation'",
+          "Physiology": "Physiology such as blood pressure",
+          "Immune": "immune status such as Rubella nonimmunity"
+          }]
+    },
+    "RE": {
+        "template": {
+          "chem_disease:affects": {
+            "question": "{input}\nYou are biomedical expert, refer to above biomedical article, please give answer based on below conditions:\nAssumptions:\n1.1 if 'patient had/exhibited {tail} on the Xth day of {head} treatment', please do not use it and find other reason.\n1.2 if 'difference did not reach statistical significance compared to groups' appeared, please do not use it and find other reason.\nConditions:\n1. if the article gave the conclusion that the interaction between {head} and another induce {tail} or {head} induce {tail}, answer 1\n2. else if the article mentioned '{head} is in development of '{tail}', answer 2\n3. else if the article mentioned {tail} was reported in the percentage of patients because of {head}, answer 3\n4.else if the article mentioned '{head}' increase in resistance to anti-{tail} drugs or drug resistance phenomenon, answer 4\n5.else if the article mentioned '{head} is high or low in {tail}, answer 5.\n6.else if {head} represent a change or oscillations, answer 6.\n7.else if {head} is an extract, answer 7.\n8.else if {head} is {tail} marker, answer 8.\n9.else if {head} and {tail} have no correlation or therapeutic, answer 9.\n10.else if {tail} in this article does not represent a disease but a cell or cell line, answer 10. \n11.else if the article clearly mentioned '{head}' is  mediating/attenuating/treating/therapeutic to '{tail}', answer 11.\nDO NOT output any other message.",
+            "answers": {
+              "11": ["chem_disease:therapeutic"],
+              "1":  ["chem_disease:marker/mechanism"],
+              "2":  ["chem_disease:marker/mechanism"],
+              "3":  ["chem_disease:marker/mechanism"],
+              "4":  ["chem_disease:marker/mechanism"],
+              "5":  ["chem_disease:marker/mechanism"],
+              "8":  ["chem_disease:marker/mechanism"]
+            }
+          },
+          "gene_disease:marker/mechanism":{
+            "question": "{input}\nYou are biomedical expert, refer to above biomedical article, please give answer code based on below conditions:\nATTENTION:\nThis is about Gene - Disease relationship extraction.\nThe causal relationship MUST be explicitly stated between Gene:{head} and Disease:{tail}\n[head] must exactly be {head}, [tail] must exactly be {tail}.\nDo not infer the answer by a similar gene name or similar disease name.\nConditions:\n-----------------------------------------------------\nE1.if along with [tail], a chemical affects [head], answer E1.\nE2.1 the protein expression of [head] was enhanced/decreased after knocking down antoher gene, answer E2.1\nE5.1. else if activation of [head](through pre-treatment with chemical) protects against [tail],answer E5.1\nE9.1. else if [chemical] is effective in treating [tail] is through its interaction with [head], answer E9.1.\nE9.2 else if treatment with [chemical] reversed [head] to the baseline values,answer E9.2.\nE2 else if chemical  infusion in [head] resulted in reduced [tail],answer E2.\n--------------------------------------------------\n1 if [tail] is caused by mutations in [head], answer 1\n2.else if [head] mRNA expression correlated with Gene expression in [tail], answer 2\n3. else if[head] upsurge precedes standard biomarkers of [tail], answer 3\n4. else if [head] levels reflect [head] severity in patients with X, answer 4\n5 else if [head] activation protects X against [tail],answer 5\n6 else if expression of [head] mRNA in induced pluripotent stem cell-derived neurospheres from [tail] patients with the 22q11.2 deletion was higher than that of healthy controls, answer 6.\n7. else if [tail] induced by an incremental intravenous infusion of [head],answer 7\n8 else if  [head] is an attractive target for induction of apoptosis in [tail] synovial cells, answer 8.\n9..else if Gene [head] is effective in Disease [tail] ..., answer 9.\n10.else if [head]-transfected cells formed [tail] more quickly when ..., answer 10.\n11 .else if  [head] is critical for the induction of [tail] in response to ... answer 11\n12. else if  [head]  gene fusion transcripts may have significant biological and clinical implications in [tail] patient management, answer 12\n13. else if The altered genes associated with [tail] included [head],answer 13\n14 else if Upregulation of [head] was associated with downregulation of GENE  in the [tail] testis, answer 14\n15 else if [head] promotes [tail] in ...,answer 15\n16 else if [head] is identified as one of the susceptibility genes for [tail] through functional screens, answer 16\n17 else if a panel of fusion genes, including [head], was previously identified in [tail],answer 17\n---------------------------------------------------------------------\nE0. if it does not describe a direct causal relationship between {head} gene mutations and {tail}, answer E0\nE99. else if there is no perfect match, answer E99.\nnone of above,  answer 99\nPlease output answer code only.",
+            "answers": {
+              "1": ["gene_disease:marker/mechanism"],
+              "2": ["gene_disease:marker/mechanism"],
+              "3": ["gene_disease:marker/mechanism"],
+              "4": ["gene_disease:marker/mechanism"],
+              "5": ["gene_disease:marker/mechanism"],
+              "6": ["gene_disease:marker/mechanism"],
+              "7":["gene_disease:marker/mechanism"],
+              "8":["gene_disease:marker/mechanism"],
+              "9":["gene_disease:marker/mechanism"],
+              "10":["gene_disease:marker/mechanism"],
+              "11":["gene_disease:marker/mechanism"],
+              "12":["gene_disease:marker/mechanism"],
+              "13":["gene_disease:marker/mechanism"],
+              "14":["gene_disease:marker/mechanism"],
+              "15":["gene_disease:marker/mechanism"],
+              "16":["gene_disease:marker/mechanism"],
+              "17":["gene_disease:marker/mechanism"]
+            }
+          },
+          "gene_disease:therapeutic": {
+            "question": "{input}\nYou are biomedical expert, refer to above biomedical article, please give answer code based on below conditions:\nATTENTION:\nThis is about Gene - Disease relationship extraction.\nThe relationship MUST be stated between {head} and {tail}\nConditions:\nE0  if {head} does not treat/inhibit/therapy {tail}, answer E0.\nE1.1 else if X downregulate the expressions of {head}, or inhibit/reduce the activity of {head}, ,but it does not explicitly state that this reduction is associated with {tail} in cell invasion, answer E1.1\nE1.2 else if X reduces the mRNA level of {head} and this reduction is associated with a decrease in cell invasion in {tail} cells, answer 1.2\nE1.3 else if During the process of apoptosis in {tail} cells, treatment with X also increased the phosphorylation of {head}, answer E1.3\nE1.4 else if Chemical is an {head}-specific... synthetic retinoid that is effective in the treatment of {tail} patients, answer E1.4\nE1.6 else if the article states that a chemical could activate {head} proteins' expression, {head} signaling pathways may have a critical role in chemical induced {tail}, answer E1.6\nE1.8 else if a chemical potently attenuated gene expressions involved in {tail}, such as {head}, answer E1.8\nE1.10 else if {head} is critical for the induction of {tail}, answer E1.10\nE1.11 else if {head} mediates X-induced {tail}, answer E1.11\nE1.12 else if X contributes to sustaining the growth and invasion of {tail} cells through regulating {head}, answer E1.12\nE2.1 else if another gene nanoparticles inhibited {head}expression and {tail}, answer E2.1\nE4.1 else if {head} does not protect against {tail}, answer E4\n-----------------------------------------------------------------\n1. else if the article explicitly mentioned \"{head} is a therapeutic target for the treatment of {tail} (e.g., \"targeted reduction of {head} expression reduces {tail}\") answer 1.\n2. else if {head} inhibited tumor growth in {tail}, answer 2.\n4. else if  Genetic variants in {head} confer protection against {tail}, answer 4\n--------------------------------------------------------------------------\nnone of above, answer 99\nPlease output answer code only after your thinking\nDO NOT output any other message\n",
+            "answers": {
+              "1": ["gene_disease:therapeutic"],
+              "2": ["gene_disease:therapeutic"],
+              "4": ["gene_disease:therapeutic"]
+            }
+          },
+
+          "chem_gene:expression": {
+            "question":"{input}\nYou are biomedical expert, refer to above biomedical article, please give answer based on below conditions:\nATTENTION: the relationship MUST be between {head} and {tail}.\nConditions:\n1. if found that {head}/combined {head} upregulated {tail} mRNA expression, answer 1\n2. else if {head} caused a reduction/downregulate of {tail} mRNA expression, answer 2.\n3. else if {tail} was regulated by {head} with fold changes ranging from ..., or {head} regulates the mRNA expression of {tail} ...,answer 3.\n4.else if We found that {head} inhibited {tail} in a time,answer 4.\n8.else if Induction of {head} resulted in a time- and dose-dependent increase of {tail} gene expression and transporter protein levels, answer 8.\n9.else if {head} exposure resulted in a sustained increase in mRNA expression for {tail}, answer 9.\n10.else if {head} treatment induced damage-associated genes {tail},answer 10.\n99.else if none of above, answer 99\nDO NOT output any other message.",
+            "answers": {
+              "1" : ["chem_gene:increases^expression"],
+              "2" : ["chem_gene:decreases^expression"],
+              "8" : ["chem_gene:increases^expression"],
+              "9" : ["chem_gene:increases^expression"]
+            }
+          },
+          "chem_gene:affects^expression": {
+            "question":"{input}\nYou are biomedical expert, refer to above biomedical article, please give answer based on below conditions, and give your reason\nATTENTION: the relationship MUST be between {head} and {tail}\nConditions:\nE0. if {head} does not affect {tail}, answer E0.\nE1. else if {head} upregulated {tail}, answer E1\nE2. else if {head} downregulate {tail},answer E2.\nE3. else if {head} inhibited {tail} ,answer E3.\n-------------------------------------------------------\n1. else if{head} regulates/ disruption in the mRNA expression of {tail}(unknown upregulate or downregluate),answer 1\n2. else if {tail} was regulated by {head} with fold changes ranging from ..., answer 2\n3. else if  {head} affected {tail} mRNA expression,answer 3\n4. else if {head} alters the relative expression of {tail}, answer 4\n5. else if the expression levels of {tail} were affected by the intake of {tail}, answer 5\n---------------------------------------------------------\n99.else if none of above, answer 99\nDO NOT output any other message.",
+            "answers": {
+              "1" : ["chem_gene:affects^expression"],
+              "2" : ["chem_gene:affects^expression"],
+              "3" : ["chem_gene:affects^expression"],
+              "4" : ["chem_gene:affects^expression"],
+              "5" : ["chem_gene:affects^expression"]
+            }
+          },
+          "chem_gene:increases^activity": {
+            "question":"{input}\nYou are biomedical expert, refer to above biomedical article, please give answer code based on below \nATTENTION: the relationship MUST be between {head} and {tail}.\nconditions:\n1. if {tail} activity was elevated by {head}, answer 1\n2.else if {head} is a inhibitor {tail},answer 2\n3.else if {head} blocked {tail}, answer 3\n4.else if {head} modulate {tail} activity with not direction,answer 4\n5.else if {head} acts through {tail}, answer 5.\n-------------------------------------------------------\nE1.1 else if There was also an increase in {tail}protein expression in the {head}-treated cells, answer E1.1\nE1.2 else if {head} increased/upregulated {tail} expression, answer E1.2\nE1.3 else  if Increased excretion of {tail} correlates with {head}, answer E1.3.\nE1.4 else  if {head} generation and {tail} expression were significantly attenuated by treatment with ..., answer E1.4\nE1.5 else  if {tail} might transport {head}, answer E1.5\nE1.6 else  if  {head} in NeuN reduced immunofluorescence for {tail},answer E1.6\nE1.7 else  if The {head} test showed that its receptors are involved in the antinociceptive mechanism of {tail}, answer E1.7\nE1.8 else  if Treatment with {head} in mice...increased {tail} levels, answer E1.8\nE1.9 else  if another chemical reduced {head} and elevated  {tail} activity, answer E1.9\n-------------------------------------------------------\nE0. If there is no direct relationship between {head} and {tail}, answer E0\nPlease output answer code only\nDO NOT output any other message",
+            "answers": {
+              "1": ["chem_gene:increases^activity"]
+            }
+          },
+
+          "chem_gene:activity": {
+            "question":"{input}\nYou are biomedical expert, refer to above biomedical article, pleas based on below conditions and gave the sentence as evidence.\nATTENTION: the relationship MUST be between{head} and {tail}.\nConditions:\nE2.1 {head}reduces the mRNA level of {tail},answer E2.1\nE2.2 {head} derivatives(not {head}) are inhibitors of {tail}, answer E2.2\nE2.3 {head} decreased other genes activity and expression of {tail}, answer E2.3\nE2.4 another chemical reversed the inhibition of{head} on {tail} expression, answer E2.4\nE2.5 {tail} GABA receptor subunit reduces the potency of {head}/ inhibiting {head} binding, answer E2.5\nE2.6 Inhibitors of MRP1 ({head})  completely reversed the {tail}-associated resistance to..., answer E2.6\nE2.8 {head} has a high affinity for {tail}, answer E2.8.\nE3.1 {tail} is blocked by pretreatment with {head}, answer E3.1\nE3.2 {head}treatment effectively lowered the serum levels of. {tail}, answer E3.2\nE3.3 {head} suppressed protein levels of {tail}..., answer E3.3\n-------------------------------------------------------\n1.else if {tail} activity was elevated by {head}, answer 1\n2.else if {head} is a inhibitor of {tail},answer 2\n3.else if {head} blocked {tail}, answer 3\n4.else if {head} modulate {tail} activity with not direction,answer 4\n5.else if {head} acts through {tail}, answer 5.\n-------------------------------------------------------\nE0. If there is no direct relationship between {head} and {tail}, answer E0\nE2.7 The {tail} receptor inhibitor {head} inhibited {tail}-induced X expression..., answer E2.7\nPlease output answer code only\\nDO NOT output any other message",
+            "answers": {
+              "2": ["chem_gene:decreases^activity"],
+              "3" : ["chem_gene:decreases^activity"]
+            }
+          },
+          "chem_gene:transport": {
+            "question":"{input}\nYou are biomedical expert, refer to above biomedical article, pleas based on below conditions\nATTENTION: \nthe relationship MUST be {head} increase transport of {tail}. transport includes secretion, export, uptake, import, release\nConditions:\nE0 if your conclude is indirect inference of answer 1 or 3, answer E0\nE1 else if the article does not provide  evidence for \"{head} ... increasing/potentiate transport/secretion/x-induced {tail} release\" nor  \"{tail} was involved the transport of {head}\", answer E1\nE2 else if {head} produced a significant increase in X in keeping with {head} stimulation, answer E2\nE3 else if {head} increases the expression/fiber density/activity of {tail}, or significant {tail} activation after inhalation of {head}, answer E3\nE4 else if {head} reduces the increase in {tail} concentrations, answer E4\nE5 else if {head} induced an accumulation of nuclear {tail}, answer E5\nE6 else if {head} stimulates {tail} activity, answer E6\nE7 else if Increased urinary excretion of {tail} correlates with chronic sensitization to {head}, answer E7\nE8.else if {head} decrease the transport function of {tail}, answer E8\nE9.else if {head} facilitates {tail} nuclear translocation, answer E9\n------------------------------------------\n1. else if {head} increase/enhance the transport(not expression/activity/excretion) function of {tail},answer 1\n2.else if {head} produced a significant increase in efflux ratios (Er)  values, which indicates an increase in the transport function of {tail}, answer 2\n3 else if {tail} was involved in the transport of {head}, The efflux ratios (Er) of {head} in {tail} cells were also higher ..., answer 3\n4 else if {tail} cells had significantly higher efflux ratios (Er) values for {head}, answer 4\n-------------------------------------------\nnone of above, answer 99\nPlease output answer code only\nDO NOT output any other message\n",
+            "answers": {
+              "1": ["chem_gene:increases^transport"],
+              "2": ["chem_gene:increases^transport"],
+              "3": ["chem_gene:increases^transport"],
+              "4": ["chem_gene:increases^transport"]
+            }
+          },
+          "chem_gene:affects^localization": {
+            "question":"{input}\nYou are biomedical expert, refer to above biomedical article, please give answer code based on below conditions:\nATTENTION:\nThis is about Chemical - Gene relationship extraction.\nThe causal relationship MUST be explicitly stated between Chemical:{head} and Gene:{tail}\n[head] must exactly be {head}, [tail] must exactly be {tail}.\nDo not infer the answer by a similar gene name or similar disease name.\nConditions:\n11. if {head} increase/enhance the biochemical alteration of {tail} molecule's structure, answer 11.\n12.else if {head} decrease/reduce the metabolic processing of {tail}, answer 12.\n13.else if {head} affects the metabolic processing of {tail}, answer 13.\n14.else if {head} affects the part of the cell where {tail} molecule resides, answer 14.\n15.else if {head} affects the {tail} molecular interaction, answer 15.\n16.else if {head} does not affect/increase/decrease {tail}, answer 16.\n---------------------------------------------------------------------\nE0. if it does not describe a direct causal relationship between {head} and {tail}, answer E0\nE1. else if there is no perfect match, answer E1.\nnone of above, answer 99\nPlease output answer code only.\nDO NOT output any other message.",
+            "answers": {
+              "14":  ["chem_gene:affects^localization"]
+            }
+          },
+          "chem_gene:affects^binding": {
+            "question":"{input}\nYou are biomedical expert, refer to above biomedical article, pleas based on below conditions\nATTENTION:\nThis is about Chemical - Gene relationship extraction.\nThe causal relationship MUST be explicitly stated between Chemical:{head} and Gene:{tail}\n[head] must exactly be {head}, [tail] must exactly be {tail}\nkeyword is \"binding\", please pay high attention on it.\nDo not infer the answer by a similar gene name or similar disease name.\nConditions:\nE1.1 if [head]-induced X overexpression interfered with the interaction of Y, to subsequently promote Y binding to [tail],answer E1.1\nE2. else if [head] affects the part of the cell where [tail] molecule resides, answer E2\nE6.1 else if [head] promoted the differentiation of X cells into Y by increasing ... mostly via [tail] activation, answer E6.1\n11. if {head} increase/enhance the biochemical alteration of {tail} molecule's structure, answer 11.\n12.else if {head} decrease/reduce the metabolic processing of {tail}, answer 12.\n13.else if {head} affects the metabolic processing of {tail}, answer 13.\n16.else if {head} does not affect/increase/decrease {tail}, answer 16.\n-----------------------------------------------------------------------------------------\n1.else if [head] affects the [tail] molecular interaction, answer 1.\n2.else if The affinity rank order and pKi values of [tail] for [head] were as follows: ... >[tail] (7.9), answer 2\n---------------------------------------------------------------------\nE0. if it does not describe a direct causal relationship between [head] and [tail] , answer E0\nE1. else if there is no perfect match, answer E1.\nnone of above, answer 99\nPlease output answer code only.\\nDO NOT output any other message.",
+            "answers": {
+              "1":  ["chem_gene:affects^binding"],
+              "2":  ["chem_gene:affects^binding"]
+            }
+          },
+          "chem_gene:increases^metabolic_processing": {
+            "question":"{input}\nYou are biomedical expert, refer to above biomedical article, pleas based on below conditions\nATTENTION:\n1. the relationship MUST be explicitly mentioned {head} increasing/decreasing metabolic processing of {tail}\n2. do not answer 1 to 4 from indirect inference\n3. [keyword] includes: acylation,alkylation,amination,carbamoylation,carboxylation,chemical synthesis,degradation (catabolism or breakdown),cleavage (incl hydrolysis),ethylation,glutathionylation,glycation,glycosylation,hydroxylation,lipidation,methylation，nitrosation,nucleotidylation,oxidation,phosphorylation,reduction,ribosylation,sulfation,sumoylation，ubiquitination. please give high attention.\nConditions:\nE1. {head} changes in expression, stability, folding, localization, splicing, activity, or transport of {tail}, answer E1\nE1.1 {head} produced by this oxidase activates {tail}, answer E1.1\nE1.2 {head} increases the activity of {tail}, answer E1.2 \nE1.3  {head} signaling trigger phosphorylation of {tail} to induce their translocation to the nucleus and result in ... answer E1.3\nE3.1. {head} is involved in the cleavage of {tail}, but unknown increase/decrease, answer E3.1\nE4.1 {tail} is involved in the metabolism of ...{head} (but unknown increase or decrease)..., answer E4.1\nE4.2 {tail} has high {head}-reductase activity, answer E4.2\n------------------------------------------\n1.else if {head} induced phosphorylation[keyword] of {tail}, answer 1\n2.else if  {head} … increases phosphorylation[keyword] levels(not activity) of {tail}, answer 2\n3.else if the article explicitly mentioned(not infer) {head}  ...by the upregulation of ... cleaved-poly[keyword] {tail}, answer 3\n4.else if  {tail}-mediated oxidative metabolism[keyword] of {head}, answer 4\n5.else if {tail} could produce {head} from X, or {tail} could produce Y from {head}, answer 5\n6.else if  Upon {head} exposure, we were able to detect its metabolites ... in {tail}, answer 6\n7.else if {head} seemed to downregulate the expressions of p-PI3K and mTOR in an independent way from {tail}, since these two drugs strongly stimulated the p-Akt expression answer 7\n8.else if {head} paradoxically increased the expression of anti-apoptotic proteins such as Bcl-2 and Mcl-1, and activated the survival protein {tail}, leading to high expression of ... answer 8.\n-----------------------------------------------\n21. else if {head} completely inhibited for X-induced phosphorylation[keyword] of {tail}, answer 21\n22.else if  {head}-induced decreases in {tail} phosphorylation[keyword], answer 22\n23.else if  effects of {head} on the phosphorylation[keyword] state …of {tail}...confirmed by...hypophosphorylated[keyword] {tail}, answer 23\n-------------------------------------------\n31. else if  effects of {head} on the phosphorylation[keyword] state, cellular redistribution as well as on the amount of transcriptionally active {tail}, answer 31\n32.else if {head} altered the phosphorylation level of {tail}, answer 32\n-------------------------------------------\nnone of above, answer 99\nPlease output answer code only\nDO NOT output any other message",
+            "answers": {
+              "1":  ["chem_gene:increases^metabolic_processing"],
+              "2":  ["chem_gene:increases^metabolic_processing"],
+              "3":  ["chem_gene:increases^metabolic_processing"],
+              "4":  ["chem_gene:increases^metabolic_processing"],
+              "5":  ["chem_gene:increases^metabolic_processing"],
+              "6":  ["chem_gene:increases^metabolic_processing"],
+              "7":  ["chem_gene:increases^metabolic_processing"],
+              "8":  ["chem_gene:increases^metabolic_processing"]
+            }
+          },
+          "chem_gene:decreases^metabolic_processing": {
+            "question":"{input}\nYou are biomedical expert, refer to above biomedical article, pleas based on below conditions\nATTENTION:\n1. the relationship MUST be explicitly mentioned {head} increasing/decreasing metabolic processing of {tail}\n2. do not answer 1 to 4 from indirect inference\n3. [keyword] includes: acylation,alkylation,amination,carbamoylation,carboxylation,chemical synthesis,degradation (catabolism or breakdown),cleavage (incl hydrolysis),ethylation,glutathionylation,glycation,glycosylation,hydroxylation,lipidation,methylation，nitrosation,nucleotidylation,oxidation,phosphorylation,reduction,ribosylation,sulfation,sumoylation，ubiquitination. please give high attention.\nConditions:\nE1. {head} changes in expression, stability, folding, localization, splicing, activity, or transport of {tail}, answer E1\nE1.1 else if {head} produced by this oxidase activates {tail}, answer E1.1\nE1.2 else if {head} increases/decreases the activity of {tail}, answer E1.2\nE1.3  else if {head} signaling trigger phosphorylation of {tail} to induce their translocation to the nucleus and result in ... answer E1.3\nE3.1. else if {head} is involved in the cleavage of {tail}, but unknown increase/decrease, answer E3.1\nE4.1 else if {tail} is involved in the metabolism of ...{head}..., answer E4.1\nE4.2 else if {tail} has high {head}-reductase activity, answer E4.2\nE22.5 else if  the article does not directly mention {head}-induced decreases in {tail} phosphorylation, but rather implies its inhibitory effect on {tail} signaling, answer E22.5\nE22.1 else if {tail} is dephosphorylated upon treatment with another chemical(not {head}), answer E22.1\nE22.2 else if the article does not mention any effect of {head} on {tail} phosphorylation, answer E22.2\nE22.3 else if {head} significantly decreases the nuclear level of {tail}, answer E22.3\nE22.4 else if {head} is mentioned as an inhibitor of another gene(not {tail}), answer E22.4\n------------------------------------------\n1.else if {head} induced phosphorylation[keyword] of {tail}, answer 1\n2.else if  {head} … increases phosphorylation[keyword] levels(not activity) of {tail}, answer 2\n3.else if the article explicitly mentioned(not infer) {head}  ...by the upregulation of ... cleaved-poly[keyword] {tail}, answer 3\n4.else if  {tail}-mediated oxidative metabolism[keyword] of {head}, answer 4\n5.else if {tail} could produce {head} from X, or {tail} could produce Y from {head}, answer 5\n6.else if  Upon {head} exposure, we were able to detect its metabolites ... in {tail}, answer 6\n-----------------------------------------------\n21. else if {head} completely inhibited for X-induced phosphorylation[keyword] of {tail}, answer 21\n22.else if the article directly mentioned {head}-induced decreases in {tail} phosphorylation[keyword], answer 22\n23.else if  effects of {head} on the phosphorylation[keyword] state …of {tail}...confirmed by...hypophosphorylated[keyword] {tail}, answer 23\n-------------------------------------------\n31. else if  effects of {head} on the phosphorylation[keyword] state, cellular redistribution as well as on the amount of transcriptionally active {tail}, answer 31\n32.else if {head} altered the phosphorylation level of {tail}, answer 32\n-------------------------------------------\nnone of above, answer 99\nPlease output answer code only\nDO NOT output any other message",
+            "answers": {
+              "21":  ["chem_gene:decreases^metabolic_processing"],
+              "22":  ["chem_gene:decreases^metabolic_processing"],
+              "23":  ["chem_gene:decreases^metabolic_processing"]
+            }
+          },
+          "synonym":{
+            "question":"{input}\nrefer to above context,  \nIf {head} is plural form of {tail} , answer '$' \nelse if {tail} is plural form of {head}, answer '$'\nelse if  {head} is the alias {type} name of {tail} and {tail} is the alias {type} name of {head} , answer '$'\nelse if {head} is a abbreviations of {tail}, please answer '$'\nelse if {tail} is a abbreviations of {head}, please answer '$'\nelse if {head} is a short name of {tail} answer '$'.\nelse if {tail} is a short name of {tail} answer '$'.\nelse answer '~'\nDO NOT output any other message.",
+            "answers": {
+              "$": ["synonym"]
+            }
+          },
+          "hypernyms": {
+            "question": "{input}\nYou are an expert of biomedical domain, above article is a biomedical paper.\nRefer to above biomedical article, you need review the entire article to judge:\n1. {head} and {tail} are different {type}, answer '~'\n2. {head} and {tail} are same {type}, {head} is a narrower concept than {tail}, answer '~'\n3. {head} and {tail} are same {type},{head} is a broader concept than {tail}, answer '$'\nDo not output any other message",
+            "answers":{
+              "$": ["hypernyms"]
+            }
+          }
+        }
+    }
+
+
+  }
+}
