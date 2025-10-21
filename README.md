@@ -81,8 +81,8 @@ run.sh RM #for RE metrics only
 ## CDR
 - run RE by GPT-OSS 120b, updated on Oct 17th,2025. 
 
-| type | TP | FP | FN | Precision |  Recall | F1 | Score |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| type | TP | FP | FN | Precision |  Recall | F1  |
+| --- | --- | --- | --- | --- | --- | --- |
 | ['induce'] | 826 | 246 | 168 |  0.770522 | 0.830986 | 0.799613 |
 
 ## ChemDisGene
@@ -105,4 +105,30 @@ run.sh RM #for RE metrics only
 | gene_disease:marker/mechanism             | 341 | 371 | 143 | 0.478933  | 0.704545| 0.570234 |
 | gene_disease:therapeutic                  | 31  | 49  | 51  | 0.387500  | 0.378049| 0.382716 |
 
+
 - running RE by GPT-OSS 120b.
+- micro metrics
+  
+|  TP  | FP |  FN | Precision | Recall | F1 |
+| --- | --- | --- | --- | --- | --- | 
+|2406 | 2028 | 1375 | 0.542625 | 0.63634 | 0.585758 |
+
+- group metrics
+  
+| Type                                      | TP  | FP  | FN  | Precision | Recall  | F1 Score |
+|-------------------------------------------|-----|-----|-----|-----------|---------|----------|
+|           ['chem_disease:marker/mechanism'] | 538 | 251 | 110 |  0.681876 | 0.830247 | 0.748782 |
+|                ['chem_disease:therapeutic'] | 320 | 180|  107 |   0.640000 | 0.749415 | 0.690399 |
+|               ['chem_gene:affects^binding'] | 133 | 199 |  61 |   0.400602 | 0.685567 | 0.505703 |
+|            ['chem_gene:affects^expression'] |  48 |  84 |  34 |   0.363636 | 0.585366 | 0.448598 |
+|          ['chem_gene:affects^localization'] |  24 |  28 |  17 |   0.461538 | 0.585366 | 0.516129 |
+|            ['chem_gene:decreases^activity'] | 204 | 284 | 107 |   0.418033 | 0.655949 | 0.510638 |
+|          ['chem_gene:decreases^expression'] | 279 | 162 | 157 |   0.632653 | 0.639908 | 0.636260 |
+|['chem_gene:decreases^metabolic_processing'] |  38 |  15 |  20 |   0.716981 | 0.655172 | 0.684685 |
+|            ['chem_gene:increases^activity'] | 212 | 386 | 101 |   0.354515 | 0.677316 | 0.465423 |
+|          ['chem_gene:increases^expression'] | 303 | 171 | 233 |   0.639241 | 0.565299 | 0.600000 |
+|['chem_gene:increases^metabolic_processing'] |  72 |  64 |  56 |   0.529412 | 0.562500 | 0.545455 |
+|           ['chem_gene:increases^transport'] |  22 |  43 |  19 |   0.338462 | 0.536585 | 0.415094 |
+|           ['gene_disease:marker/mechanism'] | 185 | 114 | 299 |   0.618729 | 0.382231 | 0.472542 |
+|                ['gene_disease:therapeutic'] |  28 |  47 |  54 |   0.373333 | 0.341463 | 0.356688 |
+				
