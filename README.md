@@ -19,12 +19,12 @@ Document-level biomedical relation extraction is a crucial yet challenging task 
 
 ## quick start
 ### Hardware requirement:
-- GPU:Nvidia RTX A6000 48G x 2 
-- CPU:Intel Xeon 2.3Hz x 2
-- Memory: 128G DDR4
+- GPU: Nvidia RTX A6000 48 GB x 2 
+- CPU: Intel Xeon 2.3Hz x 2
+- Memory: 128GB DDR4
 
 ### Software
-- OS:Ubuntu 24.04.6 LTS (GNU/Linux 5.4.0-205-generic x86_64) Tested
+- OS: Ubuntu 24.04.6 LTS (GNU/Linux 5.4.0-205-generic x86_64) Tested
 - Python version: 3.11.10 tested
 - PostgreSQL(optional) version: (Ubuntu 16.10-0ubuntu0.24.04.1) for LLM response cache only.
 
@@ -60,7 +60,7 @@ python run.py --function $function  \
 - SOTA model: gpt-oss:120b by Oct 17th, 2025.
 - input: dev.txt for CDR, test.txt for ChemDisGene
 - wandb: ON for wandb.ai usage.
-- cacheurl: DB url for LLM response cache. Program gets responses from cache if prompt and response exist in cache DB. Only PostgreSQL tested.
+- cacheurl: DB url for LLM response cache. The program gets responses from cache if the prompt and response exist in the cache DB. Only PostgreSQL is tested.
 
 - Run both NER and RE
 ```shell
@@ -132,4 +132,5 @@ run.sh RM #for RE metrics only
 |           ['gene_disease:marker/mechanism'] | 185 | 114 | 299 |   0.618729 | 0.382231 | 0.472542 |
 |                ['gene_disease:therapeutic'] |  28 |  47 |  54 |   0.373333 | 0.341463 | 0.356688 |
 				
+
 
