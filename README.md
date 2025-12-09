@@ -18,6 +18,9 @@ Document-level biomedical relation extraction is a crucial yet challenging task 
 ```
 
 ## quick start
+### Code Structure
+For a detailed description of the project code structure, see [CODE_STRUCTURE.md](CODE_STRUCTURE.md).
+
 ### Hardware requirement:
 - GPU: Nvidia RTX A6000 48 GB x 2 
 - CPU: Intel Xeon 2.3Hz x 2
@@ -132,5 +135,6 @@ run.sh RM #for RE metrics only
 |           ['gene_disease:marker/mechanism'] | 185 | 114 | 299 |   0.618729 | 0.382231 | 0.472542 |
 |                ['gene_disease:therapeutic'] |  28 |  47 |  54 |   0.373333 | 0.341463 | 0.356688 |
 				
+
 
 
