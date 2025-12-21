@@ -8,11 +8,8 @@
 ├── meta/                    # Metadata and configuration files
 ├── result/                  # Model inference and evaluation results
 ├── src/                     # Source code
-├── en_core_web_sm-3.7.0.tar.gz  # Offline spaCy English model
-├── requirements.txt         # Python dependencies
-├── run.py                   # Main Python entry point
-├── run.sh                   # Shell script to run experiments
 ├── README.md                # Project description
+├── CODE_STRUCTURE.md        # Code structure description
 ├── README.txt               # Original README
 └── LICENSE                  # License file
 ```
@@ -61,5 +58,10 @@ src/
 ├── task.py                   # Generic task framework
 ├── task_ner.py               # NER task implementation
 ├── task_re.py                # Relation extraction task implementation
+
+├── en_core_web_sm-3.7.0.tar.gz  # Offline spaCy English model
+├── requirements.txt         # Python dependencies
+├── run.py                   # Main Python entry point
+├── run.sh                   # Shell script to run experiments
 ```
 
