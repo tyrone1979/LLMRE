@@ -1,5 +1,5 @@
 # Zero-shot document-level biomedical relation extraction via scenario-based prompt design in two-stage with LLM
-- paper link: [https://arxiv.org/abs/2505.01077](https://doi.org/10.1016/j.compbiolchem.2026.108978)
+- paper link: [https://doi.org/10.1016/j.compbiolchem.2026.108978](https://doi.org/10.1016/j.compbiolchem.2026.108978)
 ## abstract
 
 Document-level biomedical relation extraction is a crucial task due to the complex interactions among multiple entities distributed across lengthy scientific texts. Traditional supervised methods are constrained by their dependency on large, expensively annotated datasets. Such datasets are particularly scarce in specialized biomedical domains. In addition, these methods require substantial computational resources for model fine-tuning. To address these limitations, we propose a novel zero-shot framework that leverages the intrinsic knowledge of large language models through structured prompting. Our method adopts a two-stage framework. First, named entity recognition and normalization identify chemical, disease, and gene entities while extracting synonym and hypernym relations. Second, relation extraction determines inter-entity relationships based on predefined schemas, along with the evaluation methods to assess the quality of these prompts. The framework’s effectiveness is driven by scenario-based prompt design principles, instantiated in a reusable five-part template. Experimental results on the ChemDisGene and CDR benchmarks demonstrate that our approach achieves competitive performance with state-of-the-art supervised methods. It eliminates the need for task-specific training data and reduces computational demands. This work indicates that well-structured zero-shot prompting is a viable and resource-efficient approach for extracting biomedical knowledge.
@@ -137,6 +137,7 @@ run.sh RM #for RE metrics only
 |           ['gene_disease:marker/mechanism'] | 185 | 114 | 299 |   0.618729 | 0.382231 | 0.472542 |
 |                ['gene_disease:therapeutic'] |  28 |  47 |  54 |   0.373333 | 0.341463 | 0.356688 |
 				
+
 
 
 
